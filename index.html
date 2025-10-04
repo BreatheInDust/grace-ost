@@ -2,17 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bandcamp Embed</title>
+  <title>ROBLOX Grace Original Soundtrack (Phill C. Tracks)</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      transition: background-color 0.3s;
+      background-color: #ffffff; /* Light mode default */
+      position: relative;
+    }
+    #modeToggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #888;
+      color: #fff;
+    }
+  </style>
 </head>
-<body style="background-color:#222; display:flex; justify-content:center; align-items:center; height:100vh;">
+<body>
 
-  <iframe style="border: 0; width: 350px; height: 470px;" 
-    src="https://bandcamp.com/EmbeddedPlayer/album=4162262035/size=large/bgcol=333333/linkcol=e32c14/tracklist=false/transparent=true/" 
-    seamless>
-    <a href="https://philliscrezilez.bandcamp.com/album/roblox-grace-original-soundtrack-phill-c-tracks">
-      ROBLOX Grace Original Soundtrack (Phill C. Tracks) by Phill C.
-    </a>
-  </iframe>
+  <button id="modeToggle">Dark Mode</button>
+
+  <div id="iframeContainer">
+    <iframe style="border: 0; width: 350px; height: 470px;" 
+      src="https://bandcamp.com/EmbeddedPlayer/album=4162262035/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false/transparent=true/" 
+      seamless>
+      <a href="https://philliscrezilez.bandcamp.com/album/roblox-grace-original-soundtrack-phill-c-tracks">
+        ROBLOX Grace Original Soundtrack (Phill C. Tracks) by Phill C.
+      </a>
+    </iframe>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('modeToggle');
+    const body = document.body;
+    const iframeContainer = document.getElementById('iframeContainer');
+
+    let darkMode = false;
+
+    toggle.addEventListener('click', () => {
+      darkMode = !darkMode;
+
+      if (darkMode) {
+        body.style.backgroundColor = '#222';
+        toggle.textContent = 'Light Mode';
+        iframeContainer.innerHTML = `
+          <iframe style="border: 0; width: 350px; height: 470px;" 
+            src="https://bandcamp.com/EmbeddedPlayer/album=4162262035/size=large/bgcol=333333/linkcol=e32c14/tracklist=false/transparent=true/" 
+            seamless>
+            <a href="https://philliscrezilez.bandcamp.com/album/roblox-grace-original-soundtrack-phill-c-tracks">
+              ROBLOX Grace Original Soundtrack (Phill C. Tracks) by Phill C.
+            </a>
+          </iframe>
+        `;
+      } else {
+        body.style.backgroundColor = '#ffffff';
+        toggle.textContent = 'Dark Mode';
+        iframeContainer.innerHTML = `
+          <iframe style="border: 0; width: 350px; height: 470px;" 
+            src="https://bandcamp.com/EmbeddedPlayer/album=4162262035/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false/transparent=true/" 
+            seamless>
+            <a href="https://philliscrezilez.bandcamp.com/album/roblox-grace-original-soundtrack-phill-c-tracks">
+              ROBLOX Grace Original Soundtrack (Phill C. Tracks) by Phill C.
+            </a>
+          </iframe>
+        `;
+      }
+    });
+  </script>
 
 </body>
 </html>
